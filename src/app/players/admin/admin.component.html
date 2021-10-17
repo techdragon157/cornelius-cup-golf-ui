@@ -1,0 +1,7 @@
+<div class="mt-5">
+  <h1>Players</h1>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="mt-5">
+    <formly-form [form]="form" [fields]="fields" [model]="model"></formly-form>
+    <button type="submit" class="btn btn-primary mt-2">Submit</button>
+  </form>
+</div>
