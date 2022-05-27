@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { Store } from '@ngrx/store';
 import { FormlyFieldConfig } from '@ngx-formly/core';
+import { Player } from 'src/app/models/player';
+import { addPlayerSuccess } from 'src/app/state/players/players.actions';
+import { selectAllPlayers } from 'src/app/state/players/players.selectors';
 
 @Component({
   selector: 'gss-admin',
@@ -10,53 +14,84 @@ import { FormlyFieldConfig } from '@ngx-formly/core';
 export class AdminComponent implements OnInit {
 
   form = new FormGroup({});
-  model = { 
-    players: [{}]
-  };
+  model = {};
   fields: FormlyFieldConfig[] = [
     {
-      key: 'players',
-      type: 'repeat',
-      templateOptions: {
-        addText: 'Add another player',
-      },
-      fieldArray: {
-        fieldGroupClassName: 'row',
-        fieldGroup: [
-          {
-            key: 'name',
-            type: 'input',
-            className: 'col-8',
-            templateOptions: {
-              label: 'Name',
-              placeholder: 'Enter player name',
-              required: true,
-            }
+      fieldGroupClassName: 'row',
+      fieldGroup: [
+        {
+          key: 'id',
+          type: 'input',
+          templateOptions: {
+            label: 'Id',
+            required: true,
+            disabled: true
           },
-          {
-            key: 'handicap',
-            type: 'input',
-            className: 'col-4',
-            templateOptions: {
-              type: 'number',
-              label: 'Handicap',
-              placeholder: 'Handicap',
-              required: true,
-              max: 54
-            }
+          hideExpression: 'true'
+        },
+        {
+          key: 'name',
+          type: 'input',
+          className: 'col-6',
+          templateOptions: {
+            label: 'Name',
+            required: true,
           }
-        ]
-      }
+        },
+        {
+          key: 'email',
+          type: 'input',
+          className: 'col-6',
+          templateOptions: {
+            label: 'Email Address',
+            required: true,
+          },
+          validators: {
+            validation: ['email'],
+          },
+        }
+      ]
     },
+    {
+      fieldGroupClassName: 'row',
+      fieldGroup: [
+        {
+          key: 'handicap',
+          type: 'input',
+          className: 'col-6',
+          templateOptions: {
+            type: 'number',
+            label: 'Handicap',
+            required: true,
+            max: 54
+          }
+        },
+        {
+          key: 'phone',
+          type: 'input',
+          className: 'col-6',
+          templateOptions: {
+            label: 'Phone (optional)',
+            required: false
+          }
+        }
+      ]
+    }
   ];
 
-  constructor() { }
+  players$ = this.store.select(selectAllPlayers);
+
+  constructor(private store: Store) { }
 
   ngOnInit(): void {
+    // this.store.
   }
 
   onSubmit() {
-    console.log(this.model);
+    if (this.form.valid) {
+      const newPlayer = {...this.model as Player}
+      this.store.dispatch(addPlayerSuccess({player: newPlayer}))
+    }
   }
 
 }

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "golf-scoring-system": {
+    "cornelius-cup-golf-ui": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/golf-scoring-system",
+            "outputPath": "dist/cornelius-cup-golf-ui",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -73,10 +73,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "golf-scoring-system:build:production"
+              "browserTarget": "cornelius-cup-golf-ui:build:production"
             },
             "development": {
-              "browserTarget": "golf-scoring-system:build:development"
+              "browserTarget": "cornelius-cup-golf-ui:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -84,7 +84,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "golf-scoring-system:build"
+            "browserTarget": "cornelius-cup-golf-ui:build"
           }
         },
         "test": {
@@ -109,5 +109,5 @@
       }
     }
   },
-  "defaultProject": "golf-scoring-system"
+  "defaultProject": "cornelius-cup-golf-ui"
 }

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PageNotFoundComponent } from './system/page-not-found/page-not-found.component';
-import { WelcomeComponent } from './system/welcome/welcome.component';
+import { PageNotFoundComponent } from './core/page-not-found/page-not-found.component';
+import { WelcomeComponent } from './core/welcome/welcome.component';
 
 const routes: Routes = [
   { path: '', component: WelcomeComponent },

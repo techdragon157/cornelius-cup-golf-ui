@@ -1,10 +1,8 @@
-import { Course } from "./course";
-import { Player } from "./player";
-
 export interface ScoreCard {
-  id: number;
-  player: Player;
-  course: Course;
+  id: string;
+  playerId: string;
+  competitionId: string;
+  gameId: string;
   handicap: number;
   strokes: number[];
   stablefordPoints?: number[];

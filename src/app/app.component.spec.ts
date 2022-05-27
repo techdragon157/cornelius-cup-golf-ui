@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  // it(`should have as title 'golf-scoring-system'`, () => {
+  // it(`should have as title 'cornelius-cup-golf-ui'`, () => {
   //   const fixture = TestBed.createComponent(AppComponent);
   //   const app = fixture.componentInstance;
-  //   expect(app.title).toEqual('golf-scoring-system');
+  //   expect(app.title).toEqual('cornelius-cup-golf-ui');
   // });
 
   // it('should render title', () => {
   //   const fixture = TestBed.createComponent(AppComponent);
   //   fixture.detectChanges();
   //   const compiled = fixture.nativeElement as HTMLElement;
-  //   expect(compiled.querySelector('.content span')?.textContent).toContain('golf-scoring-system app is running!');
+  //   expect(compiled.querySelector('.content span')?.textContent).toContain('cornelius-cup-golf-ui app is running!');
   // });
 });

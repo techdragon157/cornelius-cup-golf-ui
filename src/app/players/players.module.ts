@@ -2,8 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AdminComponent } from './admin/admin.component';
 import { PlayersRoutingModule } from './players-routing.module';
-import { ReactiveFormsModule } from '@angular/forms';
-import { FormlyModule } from '@ngx-formly/core';
+import { SharedModule } from '../shared/shared.module';
+import { StoreModule } from '@ngrx/store';
+import { playersReducer } from '../state/players/players.reducer';
 
 @NgModule({
   declarations: [
@@ -12,8 +13,7 @@ import { FormlyModule } from '@ngx-formly/core';
   imports: [
     CommonModule,
     PlayersRoutingModule,
-    ReactiveFormsModule,
-    FormlyModule.forChild({ extras: { lazyRender: true } }),
+    SharedModule
   ]
 })
 export class PlayersModule { }
